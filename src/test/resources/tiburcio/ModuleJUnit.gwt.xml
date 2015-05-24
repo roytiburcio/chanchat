@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to="Module">
+  <!-- Inherit our applications main module.                      -->
+  <inherits name='tiburcio.Module' />
+
+  <!-- Specify the path to any remote services.                   -->
+  <servlet path="/Module/greet" class="tiburcio.server.GreetingServiceImpl" />
+
+</module>
