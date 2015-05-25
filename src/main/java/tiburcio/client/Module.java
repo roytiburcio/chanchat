@@ -12,7 +12,7 @@ public class Module implements EntryPoint {
    * This is the entry point method.
    */
   public void onModuleLoad() {
-    HomePage homePage = new HomePage();
-    RootPanel.get().add(homePage);
+    ChanChat chat = new ChanChat();
+    RootPanel.get().add(chat);
   }
 }
