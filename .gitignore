@@ -1,4 +1,8 @@
+.classpath
 .git
+.project
+.settings
 .settings
 Module.launch
+bin
 target
