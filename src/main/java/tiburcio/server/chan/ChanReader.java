@@ -6,15 +6,16 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.logging.Logger;
 
+import javax.inject.Inject;
+
 import tiburcio.shared.chan.Board;
-import tiburcio.shared.chan.Thread;
 
 import com.google.gson.Gson;
-
 public class ChanReader {
   private static final Logger log = Logger.getLogger(ChanReader.class.getSimpleName());
   private final Gson gson;
 
+  @Inject
   public ChanReader(Gson gson) {
     this.gson = gson;
   }
