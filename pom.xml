@@ -61,9 +61,20 @@
         <artifactId>guice-servlet</artifactId>
         <version>4.0</version>
       </dependency>
+    	<dependency>
+    		<groupId>org.apache.opennlp</groupId>
+    		<artifactId>opennlp-distr</artifactId>
+    		<version>1.5.3</version>
+    		<type>pom</type>
+    	</dependency>
     </dependencies>
   </dependencyManagement>
   <dependencies>
+  	<dependency>
+  		<groupId>org.apache.opennlp</groupId>
+  		<artifactId>opennlp-distr</artifactId>
+  		<type>pom</type>
+  	</dependency>
     <dependency>
       <groupId>jmegahal</groupId>
       <artifactId>jmegahal</artifactId>
@@ -134,6 +145,7 @@
         <!-- Plugin configuration. There are many available options, see 
           gwt-maven-plugin documentation at codehaus.org -->
         <configuration>
+          <extraJvmArgs>-Xms768m -Xmx768m</extraJvmArgs>
           <runTarget>Module.html</runTarget>
           <modules>
             <module>tiburcio.Module</module>
