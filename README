@@ -1,0 +1,8 @@
+To run the whole project:
+  mvn package install gwt:run
+
+To run a specific binary specified by exec-maven-plugin:
+  mvn exec:java
+
+To add to in-project repo:
+  (example): mvn deploy:deploy-file -Durl=file:///<local path to client>/repo -Dfile=../jmegahal-1.0.jar -DartifactId=jmegahal -DgroupId=jmegahal -Dversion=1.0 -Dpackaging=jar
