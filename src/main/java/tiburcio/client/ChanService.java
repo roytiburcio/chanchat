@@ -10,5 +10,5 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 
 @RemoteServiceRelativePath("chan")
 public interface ChanService extends RemoteService {
-  List<String> getComments() throws IOException;
+  boolean learn();
 }

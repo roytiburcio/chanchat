@@ -32,3 +32,8 @@ h1 {
 #closeButton {
   margin: 15px 6px 6px;
 }
+
+.chatBox {
+  width: 80%;
+  height: 500px;
+}

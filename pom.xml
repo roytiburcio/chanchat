@@ -25,6 +25,11 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
+        <groupId>org.jsoup</groupId>
+        <artifactId>jsoup</artifactId>
+        <version>1.8.2</version>
+      </dependency>
+      <dependency>
         <groupId>jmegahal</groupId>
         <artifactId>jmegahal</artifactId>
         <version>1.0</version>
@@ -70,6 +75,10 @@
     </dependencies>
   </dependencyManagement>
   <dependencies>
+    <dependency>
+      <groupId>org.jsoup</groupId>
+      <artifactId>jsoup</artifactId>
+    </dependency>
   	<dependency>
   		<groupId>org.apache.opennlp</groupId>
   		<artifactId>opennlp-distr</artifactId>

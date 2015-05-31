@@ -5,6 +5,8 @@ import java.net.URISyntaxException;
 
 import javax.servlet.annotation.WebListener;
 
+import org.jibble.jmegahal.JMegaHal;
+
 import tiburcio.client.ChanService;
 import tiburcio.server.parser.ChanParser;
 
@@ -27,6 +29,7 @@ public class GuiceConfig extends GuiceServletContextListener {
           protected void configure() {
             bind(Gson.class).toInstance(new Gson());
             bind(ChanService.class).to(ChanServiceImpl.class);
+            bind(JMegaHal.class).toInstance(new JMegaHal());
             try {
               bind(File.class).annotatedWith(ChanParser.ParseModelFile.class) 
                   .toInstance(new File(Resources.getResource(CHUNKING_FILE).toURI()));

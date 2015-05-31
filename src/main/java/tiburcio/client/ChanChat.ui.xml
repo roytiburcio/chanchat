@@ -3,7 +3,7 @@
 	xmlns:g='urn:import:com.google.gwt.user.client.ui'>
 	<g:HTMLPanel>
 	    <h1>Chan Chat</h1>
-	    <div><g:TextArea ui:field="chatBox"/></div>
+	    <div><g:TextArea ui:field="chatBox" addStyleNames="chatBox"/></div>
 	    <div><g:TextBox ui:field="inputBox"/></div>
 	    <div><g:Button ui:field="sendButton">Send</g:Button></div>
 	</g:HTMLPanel>

@@ -1,8 +1,5 @@
 package tiburcio.client;
 
-import java.util.List;
-
-import com.google.common.base.Joiner;
 import com.google.common.base.Optional;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -30,16 +27,16 @@ public class ChanChat extends Composite {
   
   public ChanChat() {
     initWidget(binder.createAndBindUi(this));
-    chanService.getComments(new AsyncCallback<List<String>>() {
+    chanService.learn(new AsyncCallback<Boolean>() {
       @Override
-      public void onSuccess(List<String> result) {
-        chatBox.setValue(Joiner.on('\n').join(result));
+      public void onFailure(Throwable caught) {
+        GWT.log("Learning Failed", caught);
       }
 
       @Override
-      public void onFailure(Throwable caught) {
-        GWT.log("Could not load 4chan comments", caught);
-      };
+      public void onSuccess(Boolean result) {
+        GWT.log("Success in learning.");
+      }
     });
   }
   
@@ -52,7 +49,7 @@ public class ChanChat extends Composite {
     chatService.chat(inputBox.getText(), new AsyncCallback<Optional<String>>() {
       @Override
       public void onSuccess(Optional<String> result) {
-        chatBox.setText(chatBox.getText() + "\n" + result.get());
+        chatBox.setText(chatBox.getText() + "\n" + inputBox.getText() + "\n--" + result.get());
         inputBox.setText("");
       }
       
