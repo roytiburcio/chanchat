@@ -1,5 +1,6 @@
 package tiburcio.server;
 
+
 import com.google.inject.Singleton;
 import com.google.inject.servlet.ServletModule;
 
@@ -9,5 +10,6 @@ public class ChanServletModule extends ServletModule {
   protected void configureServlets() {
     serve("*.asdf").with(ExampleServlet.class);
     serve("/Module/chat").with(ChatServiceImpl.class);
+    serve("/Module/chan").with(ChanServiceImpl.class);
   }
 }

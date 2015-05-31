@@ -1,5 +1,7 @@
 package tiburcio.shared.chan;
 
+import javax.annotation.Nullable;
+
 import com.google.common.base.MoreObjects;
 
 public class Post {
@@ -9,6 +11,7 @@ public class Post {
     return no;
   }
   
+  @Nullable
   public String getCom() {
     return com;
   }

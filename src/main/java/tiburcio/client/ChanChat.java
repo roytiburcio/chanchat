@@ -1,5 +1,8 @@
 package tiburcio.client;
 
+import java.util.List;
+
+import com.google.common.base.Joiner;
 import com.google.common.base.Optional;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -8,7 +11,6 @@ import com.google.gwt.event.dom.client.KeyDownEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
@@ -24,9 +26,21 @@ public class ChanChat extends Composite {
   @UiField TextBox inputBox;
   
   private ChatServiceAsync chatService = GWT.create(ChatService.class);
+  private ChanServiceAsync chanService = GWT.create(ChanService.class);
   
   public ChanChat() {
     initWidget(binder.createAndBindUi(this));
+    chanService.getComments(new AsyncCallback<List<String>>() {
+      @Override
+      public void onSuccess(List<String> result) {
+        chatBox.setValue(Joiner.on('\n').join(result));
+      }
+
+      @Override
+      public void onFailure(Throwable caught) {
+        GWT.log("Could not load 4chan comments", caught);
+      };
+    });
   }
   
   @UiHandler("sendButton")

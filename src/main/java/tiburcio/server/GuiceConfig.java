@@ -5,6 +5,7 @@ import java.net.URISyntaxException;
 
 import javax.servlet.annotation.WebListener;
 
+import tiburcio.client.ChanService;
 import tiburcio.server.parser.ChanParser;
 
 import com.google.common.io.Resources;
@@ -25,6 +26,7 @@ public class GuiceConfig extends GuiceServletContextListener {
           @Override
           protected void configure() {
             bind(Gson.class).toInstance(new Gson());
+            bind(ChanService.class).to(ChanServiceImpl.class);
             try {
               bind(File.class).annotatedWith(ChanParser.ParseModelFile.class) 
                   .toInstance(new File(Resources.getResource(CHUNKING_FILE).toURI()));
